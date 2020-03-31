@@ -1,5 +1,5 @@
-/* @import url(css/header.css);
-@import url(css/content.css); */
+@import url(css/header.css);
+/* @import url(css/content.css); */
 @import url("footer.css");
 
 * {
@@ -29,12 +29,12 @@ body {
   border: 1px solid red;
 } */
 
-.header {
+/*.header {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
   color: #9f9c9c;
   text-transform: uppercase;
-  /* border-bottom: 2px solid #b0e0ea; */
+   border-bottom: 2px solid #b0e0ea; 
   padding: 20px 0;
   display: flex;
 }
@@ -52,7 +52,7 @@ body {
 
 .header a {
   text-decoration: none;
-}
+} */
 
 /* .header ul {
   border: 1px solid rgb(212, 20, 20);
