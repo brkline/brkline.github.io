@@ -23,3 +23,7 @@
 .blog-content {
   grid-column: span 8;
 }
+
+article {
+    display: block;
+}
