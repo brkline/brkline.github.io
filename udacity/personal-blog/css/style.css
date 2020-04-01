@@ -1,5 +1,5 @@
 @import url("header.css");
-/* @import url(css/content.css); */
+@import url("posts.css");
 @import url("footer.css");
 
 * {

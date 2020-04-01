@@ -1,0 +1,25 @@
+.post-container {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50px 350px 50px;
+  }
+  
+  .author {
+    grid-column: span 3;
+    margin: 20px;
+  }
+  
+  .author ul {  
+    list-style-type: none;
+    align-content: center;
+  }
+  
+  .author li {
+    margin-right: 15px;
+    align-content: center;
+  }
+  
+  .blog-content {
+    grid-column: span 9;
+  }
