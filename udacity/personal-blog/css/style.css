@@ -22,61 +22,7 @@ body {
   grid-template-columns: 0.4fr 0.3fr 0.3fr;
   grid-column-gap: 10px;
   grid-row-gap: 15px;
-  /* grid-template-rows: 50px 900px 50px; */
 }
-
-/* .box {
-  border: 1px solid red;
-} */
-
-/*.header {
-  grid-column: 1 / 4;
-  grid-row: 1 / 2;
-  color: #9f9c9c;
-  text-transform: uppercase;
-   border-bottom: 2px solid #b0e0ea; 
-  padding: 20px 0;
-  display: flex;
-}
-
-.header ul {
-  display: flex;
-  list-style-type: none;
-  align-content: center;
-}
-
-.header li {
-  margin-right: 15px;
-  align-content: center;
-}
-
-.header a {
-  text-decoration: none;
-} */
-
-/* .header ul {
-  border: 1px solid rgb(212, 20, 20);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-} */
-
-/* .navigation {
-  grid-column: span 12;
-  align-content: center;
-  border: 1px solid yellowgreen;
-  padding: 10px 20px;
-} */
-
-/* .navigation a {
-  padding: 20px, 5px;
-  text-decoration: none;
-} */
-
-/* .navigation li {
-  flex: 1;
-} */
 
 .site-title {
   grid-column: 12;
@@ -96,8 +42,7 @@ body {
 .card {
   border: 1px solid blueviolet;
   height: auto;
-  padding: 20px;
-  /* background-color: rebeccapurple; */
+  padding: 20px;  
 }
 
 .card-background-img {
@@ -107,35 +52,27 @@ body {
   background-color: #ccc;
 }
 
-/* ul {
+.social-container {    
+    color: #9f9c9c;
+    text-transform: uppercase;    
+    padding: 20px 0;
     display: flex;
-    list-style: none;
-    grid-column: 3;
-} */
-
-/* .header {      
-  display: flex;
-  align-content: center;
-  border: 1px solid green;
-}
-
-.menu {
+  }
+  
+  .social-container ul {
     display: flex;
-    flex-wrap: nowrap;
+    list-style-type: none;
     align-content: center;
-    margin: 20px;
-    border: 1px solid yellow;
-    /* grid-column: span 12; 
-} */
-
-/* .content {  
-  padding: 15px;
-} */
-
-/* .footer {
-  grid-column: span 12; 
-  margin: 10px 20px;  
-} */
+  }
+  
+  .social-container li {
+    margin-right: 15px;
+    align-content: center;
+  }
+  
+  .social-container a {
+    text-decoration: none;
+  }
 
 button {
   background-color: transparent;
