@@ -1,9 +1,6 @@
 .footer {
-    /* grid-column: span 12;
-    margin: 10px 20px; */
-    /* color: #fff; */
-    grid-column: span 12;
-    grid-row: 6 / 7;
-    padding: 20px 0;
-    background-color: #9f9c9c;  
-  }
+  grid-column: span 12;
+  grid-row: 6 / 7;
+  padding: 20px 0;
+  background-color: #9f9c9c;
+}

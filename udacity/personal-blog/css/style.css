@@ -42,7 +42,7 @@ body {
 .card {
   border: 1px solid blueviolet;
   height: auto;
-  padding: 20px;  
+  padding: 20px;
 }
 
 .card-background-img {
@@ -52,27 +52,27 @@ body {
   background-color: #ccc;
 }
 
-.social-container {    
-    color: #9f9c9c;
-    text-transform: uppercase;    
-    padding: 20px 0;
-    display: flex;
-  }
-  
-  .social-container ul {
-    display: flex;
-    list-style-type: none;
-    align-content: center;
-  }
-  
-  .social-container li {
-    margin-right: 15px;
-    align-content: center;
-  }
-  
-  .social-container a {
-    text-decoration: none;
-  }
+.social-container {
+  color: #9f9c9c;
+  text-transform: uppercase;
+  padding: 20px 0;
+  display: flex;
+}
+
+.social-container ul {
+  display: flex;
+  list-style-type: none;
+  align-content: center;
+}
+
+.social-container li {
+  margin-right: 15px;
+  align-content: center;
+}
+
+.social-container a {
+  text-decoration: none;
+}
 
 button {
   background-color: transparent;
