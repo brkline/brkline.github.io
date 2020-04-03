@@ -21,6 +21,6 @@
   align-content: center;
 }
 
-.blog-content {
-  grid-column: span 8;
-}
+/* .blog-content {
+  grid-column: span 12;
+} */
