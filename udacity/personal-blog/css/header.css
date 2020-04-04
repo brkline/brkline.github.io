@@ -1,9 +1,7 @@
 .header {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
-  color: #9f9c9c;
   text-transform: uppercase;
-  /* border-bottom: 2px solid #b0e0ea; */
   padding: 20px 0;
   display: flex;
 }
@@ -21,4 +19,5 @@
 
 .header a {
   text-decoration: none;
+  color: #2055b8;
 }

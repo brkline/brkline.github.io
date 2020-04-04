@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: #eee;
   font-family: sans-serif;
 }
 
@@ -22,11 +22,13 @@ body {
   grid-template-columns: 0.4fr 0.3fr 0.3fr;
   grid-column-gap: 10px;
   grid-row-gap: 15px;
+  background-color: white;
 }
 
 .site-title {
   grid-column: 12;
   padding: 10px 0 20px;
+  color: #1f41b8;
 }
 
 .card-container {
@@ -53,7 +55,6 @@ body {
 }
 
 .social-container {
-  color: #9f9c9c;
   text-transform: uppercase;
   padding: 20px 0;
   display: flex;
@@ -66,8 +67,7 @@ body {
 }
 
 .social-container li {
-  margin-right: 15px;
-  align-content: center;
+  padding: 10px;
 }
 
 .social-container a {
