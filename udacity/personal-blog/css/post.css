@@ -63,7 +63,6 @@
 .social-sharing ul {
   display: flex;
   list-style-type: none;
-  align-content: center;
 }
 
 .social-sharing li {
@@ -72,19 +71,30 @@
 
 .social-sharing a {
   text-decoration: none;
+  color: #2055b8;
+  cursor: pointer;
 }
 
-/*
-.social-sharing ul {
-  display: flex;
-  list-style-type: none;
-  align-content: center;
-}
-
-.social-sharing li {
-	padding: 10px;
-}
-
-.social-sharing a {
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
   text-decoration: none;
-}*/
+  margin: 5px 2px;
+}
+
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
