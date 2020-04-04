@@ -27,7 +27,7 @@ body {
 
 .site-title {
   grid-column: 12;
-  padding: 10px 0 20px;
+  margin: 10px;
   color: #1f41b8;
 }
 
