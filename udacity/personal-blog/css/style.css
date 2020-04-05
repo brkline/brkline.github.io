@@ -1,6 +1,8 @@
 @import url("header.css");
 @import url("post.css");
 @import url("footer.css");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:&display=swap");
 
 * {
   margin: 0;
@@ -9,8 +11,9 @@
 }
 
 body {
-  background-color: white;
-  font-family: sans-serif;
+  background-color: #eee;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
 }
 
 .container {
@@ -22,38 +25,30 @@ body {
   grid-template-columns: 0.4fr 0.3fr 0.3fr;
   grid-column-gap: 10px;
   grid-row-gap: 15px;
-}
-
-.site-title {
-  grid-column: 12;
-  padding: 10px 0 20px;
+  background-color: white;
 }
 
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
-  border: 1px solid yellow;
   grid-column: span 12;
   grid-row: 2;
   padding: 20px 0;
 }
 
 .card {
-  border: 1px solid blueviolet;
+  border: 1px solid #dbe3ff;
   height: auto;
   padding: 20px;
 }
 
-.card-background-img {
-  background-size: cover;
-  min-height: 180px;
-  background-position: center;
-  background-color: #ccc;
+.card img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .social-container {
-  color: #9f9c9c;
   text-transform: uppercase;
   padding: 20px 0;
   display: flex;
@@ -66,8 +61,7 @@ body {
 }
 
 .social-container li {
-  margin-right: 15px;
-  align-content: center;
+  padding: 10px;
 }
 
 .social-container a {
@@ -78,5 +72,12 @@ button {
   background-color: transparent;
   padding: 10px;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border-radius: 4px;
+}
+
+.site-title {
+  grid-column: 12;
+  margin: 10px;
+  color: #1f41b8;
+  font-family: "Roboto", sans-serif;
 }
