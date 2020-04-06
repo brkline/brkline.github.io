@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * 
  * Manipulating the DOM exercise.
@@ -25,17 +26,20 @@ let sectionList = [];
  * 
  */
 function setActiveSection() {
-    aObj = document.getElementById('nav').getElementsByTagName('a');
-    for (i = 0; i < aObj.length; i++) {
-        if (document.location.href.indexOf(aObj[i].href) >= 0) {
-            aObj[i].className = 'active';
-        }
-    }
+    const links = document.getElementById('navbar__list').getElementsByTagName('li');
+    console.log(links);
+    const eventTarget = EventTarget;
+    console.log(eventTarget);
+    // for (let i = 0; i < links.length; i++) {
+    //     if (document.location.href.indexOf(links[i].href) >= 0) {
+    //         links[i].className = 'your-active-class';
+    //     }
+    // }
 }
 
 function getSectionList() {
     const sections = document.getElementsByTagName('section');
-    for (section of sections) {
+    for (let section of sections) {
         sectionList.push(section.getAttribute('data-nav'));
     };
 
@@ -47,13 +51,17 @@ function getSectionList() {
  * Begin Main Functions
  * 
  */
-console.log(getSectionList());
+console.log(sectionList);
 // build the nav
-for (let listItem of sectionList){
-    const newListItem = document.createElement('li');
-    const newTextElement = document.createTextNode(listItem);
-    const navBarList = document.getElementById('navbar__list');
-    newListItem.appendChild(newTextElement);
+function buildNavMenu(sectionList) {
+    for (let listItem of sectionList) {
+        const newListItem = document.createElement('li');
+        const newTextElement = document.createTextNode(listItem);
+        newListItem.appendChild(newTextElement);
+        const navBarList = document.querySelector('#navbar__list');
+        navBarList.appendChild(newListItem);
+        newListItem.addEventListener('click', setActiveSection);
+    }
 }
 
 // Add class 'active' to section when near top of viewport
@@ -65,11 +73,12 @@ for (let listItem of sectionList){
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
  */
 
 // Build menu 
-
+// sectionList = getSectionList();
+buildNavMenu(getSectionList());
 // Scroll to section on link click
 
 // Set sections as active
