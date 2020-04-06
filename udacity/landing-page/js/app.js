@@ -19,6 +19,7 @@
  * 
  */
 let sectionList = [];
+let newActive;
 
 /**
  * End Global Variables
@@ -33,21 +34,27 @@ function setActiveSection(event) {
     const currentActive = document.getElementsByClassName('your-active-class');
     const elements = document.getElementsByTagName('section');
     for (let element of elements) {
-        if (element.className == 'your-active-class') {
-            element.className = '';
-        }
-
+        element.className = ' ';
+        break;
     }
+
     let sectionId = eventTarget.split(' ');
     sectionId[0] = sectionId[0].toLowerCase();
-    const newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
-    newActive.className += ' your-active-class';
-    // for (let i = 0; i < links.length; i++) {
-    //     if (document.location.href.indexOf(links[i].href) >= 0) {
-    //         links[i].className = 'your-active-class';
-    //     }
-    // }
+    newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
+    if (newActive.className = '') {
+        newActive.className += ' your-active-class';
+    } else {
+        newActive.className = 'your-active-class';
+    }
+
 }
+
+// for (let i = 0; i < links.length; i++) {
+//     if (document.location.href.indexOf(links[i].href) >= 0) {
+//         links[i].className = 'your-active-class';
+//     }
+// }
+
 
 function getSectionList() {
     const sections = document.getElementsByTagName('section');
@@ -58,13 +65,14 @@ function getSectionList() {
     return sectionList;
 }
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
- */
-console.log(sectionList);
-// build the nav
+function scrollTo(newActive) {
+    const sectionToScroll = document.getElementById(newActive.id);
+    sectionToScroll.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
 function buildNavMenu(sectionList) {
     for (let listItem of sectionList) {
         const newListItem = document.createElement('li');
@@ -76,8 +84,20 @@ function buildNavMenu(sectionList) {
         const navBarList = document.querySelector('#navbar__list');
         navBarList.appendChild(newListItem);
         newListItem.addEventListener('click', setActiveSection);
+        newListItem.addEventListener('click', function () {
+            scrollTo(newActive)
+        });
     }
 }
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ * 
+ */
+console.log(sectionList);
+
+// build the nav
+
 
 // Add class 'active' to section when near top of viewport
 
@@ -92,7 +112,6 @@ function buildNavMenu(sectionList) {
  */
 
 // Build menu 
-// sectionList = getSectionList();
 buildNavMenu(getSectionList());
 // Scroll to section on link click
 
