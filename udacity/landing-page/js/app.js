@@ -25,11 +25,23 @@ let sectionList = [];
  * Start Helper Functions
  * 
  */
-function setActiveSection() {
+function setActiveSection(event) {
     const links = document.getElementById('navbar__list').getElementsByTagName('li');
     console.log(links);
-    const eventTarget = EventTarget;
+    const eventTarget = event.currentTarget.innerText;
     console.log(eventTarget);
+    const currentActive = document.getElementsByClassName('your-active-class');
+    const elements = document.getElementsByTagName('section');
+    for (let element of elements) {
+        if (element.className == 'your-active-class') {
+            element.className = '';
+        }
+
+    }
+    let sectionId = eventTarget.split(' ');
+    sectionId[0] = sectionId[0].toLowerCase();
+    const newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
+    newActive.className += ' your-active-class';
     // for (let i = 0; i < links.length; i++) {
     //     if (document.location.href.indexOf(links[i].href) >= 0) {
     //         links[i].className = 'your-active-class';
@@ -58,6 +70,9 @@ function buildNavMenu(sectionList) {
         const newListItem = document.createElement('li');
         const newTextElement = document.createTextNode(listItem);
         newListItem.appendChild(newTextElement);
+        // let sectionId = listItem.split(' ');
+        // sectionId[0] = sectionId[0].toLowerCase();
+        // newListItem.setAttribute('id', `${sectionId[0]}${sectionId[1]}`);
         const navBarList = document.querySelector('#navbar__list');
         navBarList.appendChild(newListItem);
         newListItem.addEventListener('click', setActiveSection);
