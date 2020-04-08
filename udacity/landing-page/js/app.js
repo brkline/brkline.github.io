@@ -19,43 +19,42 @@
  * 
  */
 let sectionList = [];
-let newActive;
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
  */
+
+/**
+ * Removes 'your-active-class' from the current active section and
+ * adds the 'your-active-class' value to the section that was selected
+ * in the menu.
+ * 
+ */
 function setActiveSection(event) {
     const links = document.getElementById('navbar__list').getElementsByTagName('li');
-    console.log(links);
     const eventTarget = event.currentTarget.innerText;
-    console.log(eventTarget);
-    const currentActive = document.getElementsByClassName('your-active-class');
-    const elements = document.getElementsByTagName('section');
-    for (let element of elements) {
-        element.className = ' ';
-        break;
-    }
+    let currentActiveSection = document.getElementsByClassName('your-active-class');
+    console.log(currentActiveSection);
+    console.log(currentActiveSection.length);
+    currentActiveSection[0].removeAttribute('class');
 
     let sectionId = eventTarget.split(' ');
     sectionId[0] = sectionId[0].toLowerCase();
-    newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
+    let newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
     if (newActive.className = '') {
         newActive.className += ' your-active-class';
     } else {
         newActive.className = 'your-active-class';
     }
-
+    scrollTo(newActive);
 }
 
-// for (let i = 0; i < links.length; i++) {
-//     if (document.location.href.indexOf(links[i].href) >= 0) {
-//         links[i].className = 'your-active-class';
-//     }
-// }
-
-
+/**
+ * Gets a list of existing sections on the page.
+ *  
+ */
 function getSectionList() {
     const sections = document.getElementsByTagName('section');
     for (let section of sections) {
@@ -65,6 +64,11 @@ function getSectionList() {
     return sectionList;
 }
 
+
+/**
+ * Scrolls to the active section.
+ * 
+ */
 function scrollTo(newActive) {
     const sectionToScroll = document.getElementById(newActive.id);
     sectionToScroll.scrollIntoView({
@@ -73,46 +77,30 @@ function scrollTo(newActive) {
     });
 }
 
+/**
+ * Processes the list of setions and builds the Navigation Menu
+ * 
+ */
 function buildNavMenu(sectionList) {
     for (let listItem of sectionList) {
         const newListItem = document.createElement('li');
         const newTextElement = document.createTextNode(listItem);
         newListItem.appendChild(newTextElement);
-        // let sectionId = listItem.split(' ');
-        // sectionId[0] = sectionId[0].toLowerCase();
-        // newListItem.setAttribute('id', `${sectionId[0]}${sectionId[1]}`);
         const navBarList = document.querySelector('#navbar__list');
         navBarList.appendChild(newListItem);
         newListItem.addEventListener('click', setActiveSection);
-        newListItem.addEventListener('click', function () {
-            scrollTo(newActive)
-        });
     }
 }
 /**
  * End Helper Functions
- * Begin Main Functions
+ * Begin Main
  * 
  */
-console.log(sectionList);
 
 // build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
+buildNavMenu(getSectionList());
 
 /**
- * End Main Functions
- * Begin Events
+ * End Main
  *
  */
-
-// Build menu 
-buildNavMenu(getSectionList());
-// Scroll to section on link click
-
-// Set sections as active
