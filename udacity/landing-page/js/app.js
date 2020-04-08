@@ -36,8 +36,6 @@ function setActiveSection(event) {
     const links = document.getElementById('navbar__list').getElementsByTagName('li');
     const eventTarget = event.currentTarget.innerText;
     let currentActiveSection = document.getElementsByClassName('your-active-class');
-    console.log(currentActiveSection);
-    console.log(currentActiveSection.length);
     currentActiveSection[0].removeAttribute('class');
 
     let sectionId = eventTarget.split(' ');
