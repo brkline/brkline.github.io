@@ -70,21 +70,22 @@ function getSectionList() {
  * 
  */
 function scrollTo(newActive) {
-    const sectionToScroll = document.getElementById(newActive.id);
+    const sectionToScroll = document.getElementById(newActive.id);    
     sectionToScroll.scrollIntoView({
         behavior: 'smooth',
-        block: 'start'
+        block: 'end'
     });
 }
 
 /**
- * Processes the list of setions and builds the Navigation Menu
+ * Processes the list of sections and builds the Navigation Menu
  * 
  */
 function buildNavMenu(sectionList) {
     for (let listItem of sectionList) {
         const newListItem = document.createElement('li');
         const newTextElement = document.createTextNode(listItem);
+        newListItem.setAttribute('class', 'menu__link');
         newListItem.appendChild(newTextElement);
         const navBarList = document.querySelector('#navbar__list');
         navBarList.appendChild(newListItem);
