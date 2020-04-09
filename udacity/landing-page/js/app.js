@@ -18,7 +18,8 @@
  * Define Global Variables
  * 
  */
-let sectionList = [];
+// let sectionList = [];
+let sectionIdList = [];
 
 /**
  * End Global Variables
@@ -33,20 +34,30 @@ let sectionList = [];
  * 
  */
 function setActiveSection(event) {
-    const links = document.getElementById('navbar__list').getElementsByTagName('li');
     const eventTarget = event.currentTarget.innerText;
-    let currentActiveSection = document.getElementsByClassName('your-active-class');
-    currentActiveSection[0].removeAttribute('class');
+    const eventType = event.type;
+    const sections = document.getElementsByTagName('section');
+    if (eventType == 'click') {
+        let currentActiveSection = document.getElementsByClassName('your-active-class');
+        currentActiveSection[0].removeAttribute('class');
+        // let sectionId = eventTarget.split(' ');
+        // sectionId[0] = sectionId[0].toLowerCase();
+        // let newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
+        // if (newActive.className = '') {
+        //     newActive.className += ' your-active-class';
+        // } else {
+        //     newActive.className = 'your-active-class';
+        // }
+        // Code below is based on answers found here:
+        // https://knowledge.udacity.com/questions/66312
+        // https://knowledge.udacity.com/questions/85408#96950
+        let newActive = eventTarget;
+        scrollTo(newActive);
+    } else if (eventType == 'scroll') {
+        for (const section of sections) {
 
-    let sectionId = eventTarget.split(' ');
-    sectionId[0] = sectionId[0].toLowerCase();
-    let newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
-    if (newActive.className = '') {
-        newActive.className += ' your-active-class';
-    } else {
-        newActive.className = 'your-active-class';
+        }
     }
-    scrollTo(newActive);
 }
 
 /**
@@ -55,8 +66,13 @@ function setActiveSection(event) {
  */
 function getSectionList() {
     const sections = document.getElementsByTagName('section');
+    let sectionList = [];
+    sectionIdList = [];
     for (let section of sections) {
         sectionList.push(section.getAttribute('data-nav'));
+        const sectionName = section.getAttribute('data-nav');
+        let sectionId = ''.concat(sectionName.slice(0, 1).toLowerCase(), sectionName.replace(/ /g, '').slice(1));
+        sectionIdList.push(sectionId);
     };
 
     return sectionList;
@@ -68,11 +84,22 @@ function getSectionList() {
  * 
  */
 function scrollTo(newActive) {
-    const sectionToScroll = document.getElementById(newActive.id);    
-    sectionToScroll.scrollIntoView({
-        behavior: 'smooth',
-        block: 'end'
-    });
+    // const sectionToScroll = document.getElementById(newActive.id);    
+    const sections = document.getElementsByTagName('section');
+    for (let section of sections) {
+        if (section.getAttribute('data-nav') == newActive) {
+            if (newActive.className = '') {
+                newActive.className += ' your-active-class';
+            } else {
+                newActive.className = 'your-active-class';
+            }
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end'
+            });
+            break;
+        }
+    }
 }
 
 /**
@@ -80,15 +107,17 @@ function scrollTo(newActive) {
  * 
  */
 function buildNavMenu(sectionList) {
-    for (let listItem of sectionList) {
+    for (let [i, sectionName] of sectionList.entries()) {
         const newListItem = document.createElement('li');
-        const newTextElement = document.createTextNode(listItem);
+        const newTextElement = document.createTextNode(sectionName);
         newListItem.setAttribute('class', 'menu__link');
+        newListItem.setAttribute('id', sectionIdList[i]);
         newListItem.appendChild(newTextElement);
         const navBarList = document.querySelector('#navbar__list');
         navBarList.appendChild(newListItem);
         newListItem.addEventListener('click', setActiveSection);
     }
+    document.addEventListener('scroll', setActiveSection);
 }
 /**
  * End Helper Functions
