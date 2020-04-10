@@ -37,9 +37,34 @@ function setActiveSection(event) {
     const eventTarget = event.currentTarget.innerText;
     const eventType = event.type;
     const sections = document.getElementsByTagName('section');
+    // let currentActiveSection = document.getElementsByClassName('your-active-class');
+    // currentActiveSection[0].removeAttribute('class');
+    // let newActive = eventTarget;
+    // Code below is based on answers found here:
+    // https://knowledge.udacity.com/questions/66312
+    // https://knowledge.udacity.com/questions/85408#96950
+    for (let section of sections) {
+        if (eventType == 'scroll') {
+            const box = section.getBoundingClientRect();
+            if (box.top <= 150 && box.bottom >= 150) {
+                if (section.className = '') {
+                    section.className += ' your-active-class';
+                } else {
+                    section.className = 'your-active-class';
+                }
+            }
+        }
+        if (section.getAttribute('data-nav') == eventTarget) {
+            if (section.className = '') {
+                section.className += ' your-active-class';
+            } else {
+                section.className = 'your-active-class';
+            }
+        } else {
+            section.removeAttribute('class');
+        }
+    }
     if (eventType == 'click') {
-        let currentActiveSection = document.getElementsByClassName('your-active-class');
-        currentActiveSection[0].removeAttribute('class');
         // let sectionId = eventTarget.split(' ');
         // sectionId[0] = sectionId[0].toLowerCase();
         // let newActive = document.getElementById(`${sectionId[0]}${sectionId[1]}`);
@@ -48,15 +73,12 @@ function setActiveSection(event) {
         // } else {
         //     newActive.className = 'your-active-class';
         // }
-        // Code below is based on answers found here:
-        // https://knowledge.udacity.com/questions/66312
-        // https://knowledge.udacity.com/questions/85408#96950
-        let newActive = eventTarget;
-        scrollTo(newActive);
+        scrollTo(eventTarget);
     } else if (eventType == 'scroll') {
-        for (const section of sections) {
+        // for (const section of sections) {
 
-        }
+
+        // }
     }
 }
 
@@ -88,16 +110,10 @@ function scrollTo(newActive) {
     const sections = document.getElementsByTagName('section');
     for (let section of sections) {
         if (section.getAttribute('data-nav') == newActive) {
-            if (newActive.className = '') {
-                newActive.className += ' your-active-class';
-            } else {
-                newActive.className = 'your-active-class';
-            }
             section.scrollIntoView({
                 behavior: 'smooth',
                 block: 'end'
             });
-            break;
         }
     }
 }
@@ -110,7 +126,13 @@ function buildNavMenu(sectionList) {
     for (let [i, sectionName] of sectionList.entries()) {
         const newListItem = document.createElement('li');
         const newTextElement = document.createTextNode(sectionName);
-        newListItem.setAttribute('class', 'menu__link');
+        // If it's the first menu item, we'll set it as active.
+        // Otherwise, we'll just added a single class.
+        if (i == 0) {
+            newListItem.setAttribute('class', 'menu__link active');
+        } else {
+            newListItem.setAttribute('class', 'menu__link');
+        }
         newListItem.setAttribute('id', sectionIdList[i]);
         newListItem.appendChild(newTextElement);
         const navBarList = document.querySelector('#navbar__list');
