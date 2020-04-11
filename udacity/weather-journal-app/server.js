@@ -12,26 +12,27 @@ const bodyParser = require('body-parser')
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const cors = require('cors');
-app.use(cors());
 
 // Cors for cross origin allowance
+const cors = require('cors');
+app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static('website'));
 
 // Setup Server
-const port = 8001;
+const port = 50001;
 const server = app.listen(port, listening);
 function listening() {
-    console.log(`running on localhost: ${port}`)
+    console.log(`running on localhost: ${port}`);
 }
 
-// GET route
-app.get('/all', sendData);
-function sendData(request, response) {
+app.get('', (request, response) => {
     response.send(projectData);
-}
+})
 
-// POST route
-app.post('/add')
+app.post('/addEntry', (request, response) => {
+    projectData = request.body;
+    console.log('POST request received');
+    response.send(projectData);
+})
