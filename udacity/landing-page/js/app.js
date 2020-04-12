@@ -104,11 +104,10 @@ function getSectionList() {
 function scrollTo(newActive) {
     const sections = document.getElementsByTagName('section');
     for (let section of sections) {
-        if (section.id == newActive) {
-            section.scrollIntoView(true);
+        if (section.id == newActive) {            
             section.scrollIntoView({
                 behavior: 'smooth',
-                block: 'end'
+                block: 'start'
             });
         }
     }
