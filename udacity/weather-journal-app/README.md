@@ -11,7 +11,7 @@ This project is part of the Udacity Front End Developer Nanodegree program.  It 
 
 ## Quickstart
 
-1. Download the zip or clone the directory to your computer.  
+1. Download the zip to your computer or clone the repository.  
 2. From inside the directory created during cloning or extraction, install the required depedencies.
 3. Start the server with `node server.js`.
 4. Using your web browser, go to <http://localhost:50001/>.
