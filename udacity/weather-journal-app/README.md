@@ -1,8 +1,6 @@
 # Weather Journal App
 
-This project is part of the Udacity Front End Developer Nanodegree program.  It is an asynchronous web app that uses the OpenWeatherMap API and once a zip code and how you feel are entered, the UI is dynamically updated.
-
----
+This project is part of the Udacity Front End Developer Nanodegree program.  It is an asynchronous web app that uses the OpenWeatherMap API and a ZIP Code and how you feel entered via a form to update the UI dynamically.
 
 ## Project Dependencies
 
@@ -10,8 +8,6 @@ This project is part of the Udacity Front End Developer Nanodegree program.  It 
 * CORS - Node package for providing Express middleware.
 * Body-Parser - Node package that provides body parsing to parse incoming request bodies before your handlers.
 * Nothing already listening on port 50001.
-
----
 
 ## Quickstart
 
