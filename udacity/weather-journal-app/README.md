@@ -6,7 +6,7 @@ This project is part of the Udacity Front End Developer Nanodegree program.  It 
 
 * Express - a web application framework that runs a local server.
 * CORS - Node package for providing Express middleware.
-* Body-Parser - Node package that provides body parsing to parse incoming request bodies before your handlers.
+* Body-Parser - Node package that allows you to parse incoming request bodies before your handlers.
 * Nothing already listening on port 50001.
 
 ## Quickstart
