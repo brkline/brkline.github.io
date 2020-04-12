@@ -27,10 +27,12 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 }
 
+// GET Route
 app.get('', (request, response) => {
     response.send(projectData);
 })
 
+// POST Route
 app.post('/addEntry', (request, response) => {
     projectData = request.body;
     console.log('POST request received');
