@@ -1,8 +1,27 @@
+const dotenv = require('dotenv');
+dotenv.config();
 var path = require('path')
 const express = require('express')
+var bodyParser = require('body-parser')
+var cors = require('cors')
 const mockAPIResponse = require('./mockAPI.js')
+var aylien = require("aylien_textapi");
+// set aylien API credentials
+var alyienapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+});
 
 const app = express()
+app.use(cors())
+// Body Parser JSON
+app.use(bodyParser.json())
+// Body Parser URL Encoding
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
 
 app.use(express.static('dist'))
 
