@@ -3,6 +3,7 @@ function handleSubmit(event) {
     const SERVER_URL = 'http://localhost:8080';
 
     // check what text was put into the form field
+    console.log('Inside handleSubmit function');
     let newsUrl = document.getElementById('news-url').value
     // checkForName(formText)
     if (checkForValidURL(newsUrl)) {

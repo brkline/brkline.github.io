@@ -35,7 +35,6 @@ app.get('/', function (request, response) {
 // })
 
 app.post('/addEntry', addEntry);
-
 function addEntry(request, response) {
   let requestData = request.body
   alyienapi.sentiment({
