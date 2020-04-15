@@ -3,8 +3,7 @@ dotenv.config();
 var path = require('path')
 const express = require('express')
 var bodyParser = require('body-parser')
-var cors = require('cors')
-const mockAPIResponse = require('./mockAPI.js')
+const cors = require('cors')
 var aylien = require("aylien_textapi");
 // set aylien API credentials
 var alyienapi = new aylien({
@@ -14,9 +13,8 @@ var alyienapi = new aylien({
 
 const app = express()
 app.use(cors())
-// Body Parser JSON
+//Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.json())
-// Body Parser URL Encoding
 app.use(
   bodyParser.urlencoded({
     extended: true
@@ -27,9 +25,9 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
-app.get('/', function (req, res) {
+app.get('/', function (request, response) {
   res.sendFile('dist/index.html')
-  // res.sendFile(path.resolve('src/client/views/index.html'))
+  // response.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // app.get('/test', function (req, res) {
@@ -53,7 +51,8 @@ function addEntry(request, response) {
   )
 }
 
-// designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
-})
+// Setup Server
+const port = 50001;
+const server = app.listen(port, listening => {
+    console.log(`running on localhost: ${port}`);
+});
