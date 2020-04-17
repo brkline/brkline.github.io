@@ -5,9 +5,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/client/index.js',
-    mode: 'development',
     devtool: 'source-map',
-    stats: 'verbose',
+    mode: 'development',
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
+    devServer: {
+        port: 50001
+    },
     module: {
         rules: [
             {
@@ -17,7 +23,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             }
         ]
     },
@@ -34,6 +40,6 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        })        
     ]
 }

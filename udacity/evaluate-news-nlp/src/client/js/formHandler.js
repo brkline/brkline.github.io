@@ -1,59 +1,31 @@
+import { isValidUrl } from './urlValidation'
 function handleSubmit(event) {
     event.preventDefault()
-    const SERVER_URL = 'http://localhost:8080';
+    
+    const baseURL = "http://localhost:50001/sentiment";
+    const url = document.getElementById('url').value;
 
-    // check what text was put into the form field
-    console.log('Inside handleSubmit function');
-    let newsUrl = document.getElementById('news-url').value
-    // checkForName(formText)
-    if (checkForValidURL(newsUrl)) {
-        postToForm(encodeURI(SERVER_URL), {
-            formText: newsUrl
-        }).then(function (projectData) {
-            // update UI
-            document.getElementById('polarity').innerHTML = projectData.polarity
-            document.getElementById('subjectivity').innerHTML = projectData.polarity
-            document.getElementById('text').innerHTML = Client.cutString(
-                projectData.text,
-                500
-            )
-            document.getElementById('polarity_confidence').innerHTML =
-                projectData.polarity_confidence
-            document.getElementById('subjectivity_confidence').innerHTML =
-                projectData.subjectivity_confidence
-
-            // empty error message
-            document.getElementById('errorMessage').innerHTML = ''
-        })
-    } else {
-        // error message
-        // document.getElementById('errorMessage').innerHTML =
-        //     'Invalid URL.  Please try again.'
-        alert('Invalid URL')
-    }
-
-    console.log('::: Form Submitted :::')
-
-    const postToForm = async (url = '', projectData = {}) => {
-
-        const response = await fetch(url, {
+    if (isValidUrl(url)) {
+        fetch(baseURL, {
             method: 'POST',
-            credentials: 'same-origin',
+            credentials: 'same-origin',            
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(projectData),
-        });
+            body: JSON.stringify({url: url})
+        })
+            .then(res => res.json())
+            .then(function (res) {
+                document.getElementById('polarity').innerHTML = res.polarity
+                document.getElementById('subjectivity').innerHTML = res.subjectivity
+                document.getElementById('polarity-confidence').innerHTML = res.polarityConfidence
+                document.getElementById('subjectivity-confidence').innerHTML = res.subjectivityConfidence
+            });
+        console.log('::: Form Submitted :::')        
 
-        try {
-            const newData = await response.json();
-            return newData;
-        } catch (error) {
-            console.log("error", error);
-        }
-    };
+    } else {
+        alert("The URL is not valid.")
+    }
 }
 
-export {
-    handleSubmit
-}
+export {handleSubmit}
