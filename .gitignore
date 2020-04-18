@@ -10,3 +10,6 @@ udacity/evaluate-news-nlp/.vscode/launch.json
 udacity/fend-capstone/.env
 udacity/fend-capstone/.vscode
 udacity/fend-capstone/node_modules
+udacity/fend-capstone/dist
+udacity/fend-capstone/evaluate-news-nlp
+udacity/fend-capstone/src/client/js/api-constants.js

@@ -1,5 +1,6 @@
-// Setup empty JS object to act as endpoint for all routes
-projectData = {};
+// Used for storing sensitive data like API keys
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Require Express to run server and routes
 const express = require('express');
@@ -17,8 +18,51 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
+// const path = require('path');
+const fetch = require('node-fetch');
+
 // Initialize the main project folder
 app.use(express.static('dist'));
+
+// GET Route
+app.get('/', (request, response) => {
+    response.sendFile('dist/index.html');
+})
+
+// POST Route
+app.post('/tripforecast', async (request, response) => {
+    console.log('Inside POST /tripforecast');
+    // Request forecast from Weatherbit api
+    const getWeatherbitForecast = await fetch(request.body.url);
+
+    console.log(`POST Route Body Url: ${request.body.url}`);
+    const forecastResponse = getWeatherbitForecast.json();
+    // .then( (response) => {
+    //      return response.json();
+    // })
+    forecastResponse.then((weatherbitForecast) => {
+
+        const weatherbitResponse = {
+            currentTemp: weatherbitForecast.data[0].temp,
+            currentIcon: weatherbitForecast.data[0].weather.icon,
+            forecastHighTemp: weatherbitForecast.data[0].max_temp,
+            forecastLowTemp: weatherbitForecast.data[0].low_temp,
+            forecastIcon: weatherbitForecast.data[0].weather.icon
+
+        }
+
+        response.send(weatherbitResponse);
+
+    }).catch((error) => {
+        console.log(error);
+    });
+});
+
+// Trip Data GET route
+app.get('/tripdata', (request, response) => {
+    response.send(tripInfo);
+    console.log(tripInfo);
+});
 
 // Setup Server
 const port = 50001;
@@ -27,14 +71,4 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 }
 
-// GET Route
-app.get('', (request, response) => {
-    response.send(projectData);
-})
-
-// POST Route
-app.post('/addEntry', (request, response) => {
-    projectData = request.body;
-    console.log('POST request received');
-    response.send(projectData);
-})
+module.exports = app;
