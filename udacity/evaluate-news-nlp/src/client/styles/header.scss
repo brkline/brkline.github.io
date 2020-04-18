@@ -1,5 +1,26 @@
 header {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  padding: 10px 40px;
+  text-align: center;
+}
+
+.navigation {
+  nav {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
+    list-style: none;
+    justify-content: flex-start;
+    ul {
+      list-style: none;
+      li {
+        padding: 10px;
+        font-size: 20px;
+        a {
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

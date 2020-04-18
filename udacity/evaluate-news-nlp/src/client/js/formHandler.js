@@ -21,10 +21,10 @@ function handleSubmit(event) {
                 document.getElementById('polarity-confidence').innerHTML = res.polarityConfidence
                 document.getElementById('subjectivity-confidence').innerHTML = res.subjectivityConfidence
             });
-        console.log('::: Form Submitted :::')        
+        console.log('::: Form Submitted :::');      
 
     } else {
-        alert("The URL is not valid.")
+        alert('The URL is not valid.');
     }
 }
 

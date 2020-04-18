@@ -1,0 +1,12 @@
+.results {
+    display: flex;
+    flex-direction: column;
+  ul {
+    list-style: none;
+    li {      
+      p {        
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

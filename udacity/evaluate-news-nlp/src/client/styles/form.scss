@@ -1,12 +1,23 @@
-form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
+main h1 {
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 36px;
+  font-weight: 700;
 }
 
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+form {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+}
+
+.form-div {
+  #url {
+    width: 60%;
+    margin-right: 10px;
+  }
+  .button {
+    width: 30%;
+  }
 }

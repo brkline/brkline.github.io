@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>News Evaluation With NLP</title>
+  </head>
 
-    <body>
+  <body>
+    <header>
+      <div class="navigation">
+        <nav>
+          <ul>
+            <li><a href="#">A Link to Nowhere</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        <header>
-            <div class="">
-                Evaluate NLP News
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
+    <main>
+      <section>
+        <h1>Evaluate News App With NLP</h1>
+        <form onsubmit="return Client.handleSubmit(event)">
+          <div class="form-div">
+            <input
+              id="url"
+              type="url"
+              name="url"
+              value=""
+              placeholder="Paste Article or Blog URL Here"
+            />
 
-        <main>
-            <h1>Evaluate News App With NLP</h1>
-            <section>
-                <form onsubmit="return Client.handleSubmit(event)">
-                    <div class="form-div">
-                        <input id="url" type="url" name="url" placeholder="Paste News Article URL Here">
-                        <input class="button" type="submit" name="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                    </div>
-                </form>
-            <section>
+            <input
+            class="button"
+              type="submit"
+              name="submit"
+              value="Submit"
+              onclick="return Client.handleSubmit(event)"
+              onsubmit="return Client.handleSubmit(event)"
+            />
+          </div>
+        </form>
+      </section>
 
-            <section>
-                <h2><u> Results: </u></h2>
-                <br>
-                <div id="results">
-                    <h1>Polarity:</h1>
-                    <p id="polarity"></p>
-                    <br />
-                    <h2>Subjectivity:</h2>
-                    <p id="subjectivity"></p>
-                    <br />
-                    <h2>Polarity Confidence:</h2>
-                    <p id="polarity-confidence"></p>
-                    <br />
-                    <h2>Subjectivity Confidence:</h2>
-                    <p id="subjectivity-confidence"></p>
-                </div>
-            </section>
-        </main>
+      <section>
+        <div class="results">
+          <ul>
+            <li><u>Results:</u></li>
+            <li>
+              <p>Polarity:</p>
+              <p id="polarity"></p>
+              <p>Polarity Confidence:</p>
+              <p id="polarity-confidence"></p>
+            </li>
+            <li>
+              <p>Subjectivity:</p>
+              <p id="subjectivity"></p>
+              <p>Subjectivity Confidence:</p>
+              <p id="subjectivity-confidence"></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-        <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
-                });
-            }
-        </script>
-    </body>
+    <footer>
+      <p>This is a footer</p>
+    </footer>
+
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+  </body>
 </html>

@@ -10,8 +10,6 @@ dotenv.config();
 let projectData = {};
 
 // set aylien API credentials
-console.log(`API key: ${process.env.API_KEY}`);
-console.log(`API ID: ${process.env.APP_ID}`);
 var alyienApi = new aylien({
     application_id: process.env.APP_ID,
     application_key: process.env.API_KEY
@@ -28,7 +26,7 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    res.sendFile('dist/index.html');
 })
 
 app.post('/sentiment', function (req, res) {
@@ -42,10 +40,10 @@ app.post('/sentiment', function (req, res) {
               subjectivityConfidence: response.subjectivity_confidence
             }            
             
-            console.log(projectData)
+            console.log(projectData);
             res.send(projectData);
         } else {
-            console.log(error)
+            console.log(error);            
         }
     });
 })
