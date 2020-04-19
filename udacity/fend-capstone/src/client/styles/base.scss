@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap");
+
+$header-font: "Roboto Mono", monospace;
+$main-font: "Roboto Mono", monospace;
+$basic-font: "Roboto Mono", monospace;
+$btn-font: "Source Sans Pro", sans-serif;
+$btn-font-size: 25px;
+
+$compliment-color: #ffc42e;
+$border-color: #000;
+$font-color: #2a3550;
+$base-background-color: #fff;
+$header-background-color: #4778ff;
+$header-text-color: #fff;
+
+$form-background-color: #4778ff;
+$footer-background-color: #4778ff;
+$footer-color: #4778ff;
+$footer-text-color: #fff;
+$btn-color: #ffc42e;
+$reset-btn-color: #fff;
+$reset-btn-background-color: #fff;
+$reset-btn-hover-background-color: #ffc42e;
+$submit-btn-color: #fff;
+
+$max-width: 1001px;
+$smaller-display: 800px;
+$small-display: 600px;
+$mobile-display: 650px;
+$point-2: 520px;
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $basic-font;
+}

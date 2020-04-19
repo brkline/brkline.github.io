@@ -1,0 +1,27 @@
+
+// Below are the constants used in app.js.  The ones without values are where you have to sign up forecast
+// your own API credentials for each of the APIs being used.
+// Geonames: http://www.geonames.org/export/web-services.html
+// Weatherbit: https://www.weatherbit.io/
+// Pixabay:  https://pixabay.com/api/docs/
+
+// Once you sign and receive your API credentials, rename this file to api-constants.js before running
+// this project.
+
+export const constants = {
+GEONAMES_USERNAME: ,
+GEONAMES_BASE_URL: 'http://api.geonames.org/searchJSON?q=',
+GEONAMES_USERNAME_PARAMETER_NAME: '&username',
+GEONAMES_MAXROWS_PARAMETERNAME:  '&maxRows',
+WEATHERBIT_API_KEY: ,
+WEATHERBIT_CURRENT_API_BASE_URL: 'https://api.weatherbit.io/v2.0/current?lat=',
+WEATHERBIT_FORECAST_API_BASE_URL: 'https://api.weatherbit.io/v2.0/forecast/daily?lat=',
+WEATHERBIT_LONGITUDE_PARAMETER_NAME: '&lon',
+WEATHERBIT_KEY_PARAMETER_NAME: '&key',
+WEATHERBIT_UNITS_PARAMETER_NAME: '&units',
+WEATHERBIT_UNITS: 'I',
+PIXABAY_API_KEY: ,
+PIXABAY_BASE_URL: 'https://pixabay.com/api/',
+PIXABAY_PARAMETERS: '&image_type=photo&pretty=true&category=places',
+TRIP_FORECAST_HOST_URL: 'http://localhost:50001/tripforecast'
+}

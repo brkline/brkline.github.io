@@ -1,39 +1,109 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weather Journal</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
- <body>
-<div id = "app">
-  <div class ="holder headline">
-    Weather Journal App
-  </div>
-  <div class ="holder zip">
-    <label for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="enter zip code here">
-  </div>
-  <div class ="holder feel">
-    <label for="feelings">How are you feeling today?</label>
-    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-    <button id="generate" type = "submit"> Generate </button>
-  </div>
-  <div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
-   <div id = "entryHolder">
-     <div id = "date-label">Date:</div>
-    <div id = "date"></div>
-    <div id = "temp-label">Temp:</div> 
-   <div id = "temp"></div>
-   <div id = "content-label">Feeling:</div>
-   <div id = "content"></div>
-  </div>
-  </div>
-  </div>
-<script src="app.js" type="text/javascript"></script>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Planner</title>
+  </head>
 
-</body>
+  <body>
+    <header>
+      <h1>Travel App</h1>
+    </header>
+
+    <main class="main">
+      <form>
+        <span class="place">
+          <label for="user-destination">Destination: </label>
+          <input
+            type="text"
+            name="destination"
+            id="destination"
+            placeholder="What city do you want to visit?"
+            class="trip-destination"
+          />
+        </span>
+        <div class="dates">
+          <span class="start">
+            <label for="departure-date">Departure Date: </label>
+            <input
+              type="date"
+              name="date"
+              placeholder="MM/DD/YYYY"
+              id="departure-date"
+            />
+          </span>
+          <span class="end">
+            <label for="return-date">Return Date: </label>
+            <input
+              type="date"
+              name="date"
+              placeholder="MM/DD/YYYY"
+              id="return-date"
+            />
+          </span>
+        </div>
+
+        <div class="btns">
+          <button type="submit" class="submit-btn btn">Submit</button>
+
+          <button type="reset" class="reset-btn btn">Reset</button>
+        </div>
+      </form>
+    </main>
+
+    <section class="result-container">
+      <section class="location-img">
+        <img class="img" />
+      </section>
+
+      <section class="trip-info">
+        <p class="countdown">
+          <span class="country"></span> is <span class="days"></span> away.
+        </p>
+
+        <p class="trip-length">
+          You will travel for <span class="length"></span
+          ><span class="ldays"></span>
+        </p>
+        <div class="details">
+          <h3>Weather Info</h3>
+
+          <div class="temperature-section">
+            <p class="temps"></p>
+            <img
+              src="/weather-icons/a01n.png"
+              class="current-weather-icon icon"
+            />
+            <img
+              src="/weather-icons/a01n.png"
+              class="daily-forecast-icon icon"
+            />
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <p class="attribution">
+        This project makes use of APIs provided by
+        <a
+          href="http://www.geonames.org/export/web-services.html"
+          target="_blank"
+          >GeoNames</a
+        >, <a href="https://www.weatherbit.io/" target="_blank">Weatherbit</a>,
+        <a href="https://pixabay.com/api/docs/" target="_blank">and Pixabay</a>.
+      </p>
+    </footer>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      } else {
+        console.log("error: service worker not working");
+      }
+    </script>
+  </body>
 </html>

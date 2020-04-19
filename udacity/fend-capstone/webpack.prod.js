@@ -46,7 +46,7 @@ module.exports = {
         new MiniCssExtractPlugin({filename: '[name].css'}),
         new WorkboxPlugin.GenerateSW(),
         new CopyWebpackPlugin([
-            {from:'src/client/media/assets/weather-icons',to:'weather-icons'} 
+            {from:'src/client/media/weather-icons',to:'weather-icons'} 
         ]),
     ]
 }

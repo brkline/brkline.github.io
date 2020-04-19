@@ -1,0 +1,18 @@
+@import "./base.scss";
+
+footer {
+  background-color: $footer-background-color;
+  height: 50px;
+  margin: 30px 20px 10px 20px;
+  padding: 10px 0 10px 10px;
+
+  .attribution {
+    color: $footer-text-color;
+    font-size: 20px;
+
+    a {
+      color: $footer-text-color;
+      text-decoration: none;
+    }
+  }
+}

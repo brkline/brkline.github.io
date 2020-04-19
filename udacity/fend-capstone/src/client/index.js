@@ -1,44 +1,34 @@
-// import { fetchData } from './js/app'
-
-// import './styles/style.scss' 
-
-// export{fetchData}
-
 import { handleSubmit } from "./js/app.js"
 
-//main event Handler
-//add event-listener for submit button
-document.querySelector('.save-btn').addEventListener('click', () => {
-    
+// Add an event listener for the submit button
+document.querySelector('.submit-btn').addEventListener('click', () => {
+
     event.preventDefault();
 
-    const date = document.querySelector('#start-date').value;
-    const city = document.querySelector('#user-location').value;
-    
-    
+    const date = document.querySelector('#departure-date').value;
+    const city = document.querySelector('#destination').value;
 
-    
     const todayDate = new Date().toJSON().slice(0, 10);
 
-    if(city == '' || date == '') {
-       
-        alert('please enter a valid city and date!');
-    
-    }else if(date < todayDate) {
+    if (city == '' || date == '') {
 
-        alert('Travel Date can not be before current time');
+        alert('Please enter a valid city and date.');
 
-    }else {
+    } else if (date < todayDate) {
 
-        handleSubmit(city);
+        alert('Departure Date cannot be before today.');
+
+    } else {
+
+        handleSubmit(city, date);
 
     }
 });
 
 
-document.querySelector('.remove-btn').addEventListener('click', ()=> {
+document.querySelector('.reset-btn').addEventListener('click', () => {
 
-document.querySelector('.Res-container').style.display = 'none';
+    document.querySelector('.result-container').style.display = 'none';
 
 });
 

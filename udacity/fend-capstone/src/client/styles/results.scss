@@ -1,0 +1,49 @@
+@import "./base.scss";
+
+.result-container {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 20px;
+  box-shadow: 5px 5px whitesmoke;
+  padding: 40px 0;
+
+  .location-img {
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .trip-info {
+    font-size: 30px;
+    width: 40%;
+
+    h3 {
+      font-family: $btn-font;
+      font-weight: 100;
+      margin: 20px 0;
+    }
+
+    h4 {
+      color: $font-color;
+      text-decoration: underline;
+      text-transform: uppercase;
+      margin: 10px 0 20px 0;
+    }
+    .temperature-section {
+      background-color: $compliment-color;
+      width: 400px;
+      padding: 5px 10px 5px 20px;
+      display: flex;
+
+      .temps,
+      .weather-info {
+        background-color: $header-text-color;
+        width: 80%;
+        padding: 5px 10px 5px 20px;
+      }
+    }
+  }
+}

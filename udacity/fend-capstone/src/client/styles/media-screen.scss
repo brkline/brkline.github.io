@@ -1,0 +1,86 @@
+@import "./base.scss";
+@media (max-width: 1070px) {
+  .temperature-section {
+    width: 350px;
+  }
+}
+@media (max-width: $max-width) {
+  header {
+    .fas {
+      display: none;
+    }
+  }
+
+  .result-container {
+    // display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .location-img {
+      width: 80%;
+    }
+
+    .trip-info {
+      width: 100%;
+
+      .details {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        .temperature-section {
+          flex-direction: column;
+          /* overflow: hidden; */
+          align-items: baseline;
+          width: 400px;
+          margin-left: 30px;
+
+          .icon {
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+  form {
+    span {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: $mobile-display) {
+  header {
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .main {
+    form {
+      align-items: flex-start;
+
+      .dates {
+        flex-direction: column;
+        align-items: center;
+        .departure-date {
+          margin-right: 10px;
+        }
+        .return-date {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $point-2) {
+  header {
+    h1 {
+      font-size: 25px;
+    }
+  }
+  form {
+    .btns {
+      display: contents;
+    }
+  }
+}
